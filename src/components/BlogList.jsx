@@ -7,7 +7,7 @@ const BlogList = () => {
 	const [users, setUsers] = useState([]);
 	const [currentPage, setCurrentPage] = useState(1);
 	const [searchTerm, setSearchTerm] = useState("");
-	const blogsPerPage = 15;
+	const [blogsPerPage, setblogsPerPage] = useState(5);
 
 	useEffect(() => {
 		const fetchBlogs = async () => {
@@ -68,6 +68,14 @@ const BlogList = () => {
 			<div className='container px-5 py-24 mx-auto'>
 				<div className='flex justify-between items-center mb-8'>
 					<h2 className='text-3xl font-bold'>All Blogs</h2>
+					<label>Blogs per page :- </label>
+					<select onClick={(e) => setblogsPerPage(e.target.value)}>
+						
+						<option value="5">5</option>
+						<option value="10">10</option>
+						<option value="15">15</option>
+						<option value="20">20</option>
+					</select>
 					<input
 						type='text'
 						placeholder='Search by title or author'
